@@ -1,7 +1,6 @@
 package com.sky.controller.admin;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+
 import com.sky.constant.JwtClaimsConstant;
 import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeeLoginDTO;
@@ -101,10 +100,26 @@ public class EmployeeController {
     @PostMapping("/status/{status}")
     @ApiOperation("启用和禁用")
     public Result startAndBan(@PathVariable Integer status,Long id){
-        LambdaUpdateWrapper<Employee> employeeLambdaUpdateWrapper = new LambdaUpdateWrapper<>();
-        employeeLambdaUpdateWrapper.eq(Employee::getId,id)
-                .set(Employee::getStatus,status);
+        employeeService.startAndBan(status,id);
+        return Result.success();
+    }
 
+    /**
+     * 根据id查询员工信息
+     */
+    @GetMapping("/{id}")
+    @Operation(summary = "根据id查询员工信息")
+    public Result queryById(@PathVariable Long id){
+        Employee employee = employeeService.queryById(id);
+        return Result.success(employee);
+    }
+    /**
+     * 编辑员工信息
+     */
+    @PostMapping("/update")
+    @Operation(summary = "编辑员工信息")
+    public Result updataById(@RequestBody EmployeeDTO employeeDTO){
+        employeeService.updataById(employeeDTO);
         return Result.success();
     }
 }

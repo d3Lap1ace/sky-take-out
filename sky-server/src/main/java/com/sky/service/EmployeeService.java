@@ -1,6 +1,6 @@
 package com.sky.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
+
 import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.dto.EmployeePageQueryDTO;
@@ -35,4 +35,18 @@ public interface EmployeeService {
      * @param id
      */
     void startAndBan(Integer status, Long id);
+
+
+    /**
+     * 根据id查询员工信息
+     * @param id
+     * @return
+     */
+    Employee queryById(Long id);
+
+    /**
+     * 编辑员工信息
+     * @param employeeDTO
+     */
+    void updataById(EmployeeDTO employeeDTO);
 }
