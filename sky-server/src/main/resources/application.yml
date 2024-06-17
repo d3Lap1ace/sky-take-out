@@ -38,3 +38,9 @@ sky:
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+
+minio:  # minio
+  endpoint: http://192.168.6.100:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket-name: lease-pitcher

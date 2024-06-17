@@ -73,6 +73,7 @@ public class EmployeeController {
      * @return
      */
     @PostMapping("/logout")
+    @Operation(summary = "员工登出")
     public Result<String> logout() {
         return Result.success();
     }
