@@ -13,6 +13,12 @@ public enum OperationType {
     /**
      * 插入操作
      */
-    INSERT
+    INSERT,
+
+    DELETE,
+
+    SELETE,
+    PAGE
+
 
 }

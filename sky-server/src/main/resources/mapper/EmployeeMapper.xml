@@ -32,4 +32,8 @@
     <select id="getById" resultType="com.sky.entity.Employee">
         select * from employee where id = #{id}
     </select>
+<!--    查询用户信息-->
+    <select id="getByUsername" resultType="com.sky.entity.Employee">
+        select * from employee where username = #{username}
+    </select>
 </mapper>
