@@ -4,9 +4,9 @@
 <mapper namespace="com.sky.mapper.CategoryMapper">
 <!--    插入数据-->
     <insert id="insert">
-        insert into category(type, name, sort, status, create_time, update_time, create_user, update_user)" +
-            " VALUES" +
-            " (#{type}, #{name}, #{sort}, #{status}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})
+        insert into category(type, name, sort, status, create_time, update_time, create_user, update_user)
+            VALUES
+            (#{type}, #{name}, #{sort}, #{status}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})
     </insert>
 <!--    根据id删除-->
     <delete id="deleteById">

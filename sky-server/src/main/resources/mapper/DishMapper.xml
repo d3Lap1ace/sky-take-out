@@ -13,11 +13,11 @@
 
     <select id="pageQuery" resultType="com.sky.vo.DishVO">
         select
-            d.*
+            d.*,
             cg.name cg_name
         from dish d
         left join category cg on cg.id = d.category_id
-        where d.status = 1 and cg.status = 1
+
         <where>
             <if test="name != null">
                 and d.name like concat('%',#{name},'%')
