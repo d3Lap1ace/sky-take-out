@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sky.constant.MessageConstant;
 import com.sky.constant.StatusConstant;
+import com.sky.context.BaseContext;
 import com.sky.dto.SetmealDTO;
 import com.sky.dto.SetmealPageQueryDTO;
 import com.sky.entity.Dish;
@@ -23,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -47,6 +49,10 @@ public class SetmealServiceImpl implements SetmealService {
     public void saveWithDish(SetmealDTO setmealDTO) {
         Setmeal setmeal = new Setmeal();
         BeanUtils.copyProperties(setmealDTO, setmeal);
+        setmeal.setCreateTime(LocalDateTime.now());
+        setmeal.setUpdateTime(LocalDateTime.now());
+        setmeal.setCreateUser(BaseContext.getCurrentId());
+        setmeal.setUpdateUser(BaseContext.getCurrentId());
 
         //向套餐表插入数据
         setmealMapper.insert(setmeal);
