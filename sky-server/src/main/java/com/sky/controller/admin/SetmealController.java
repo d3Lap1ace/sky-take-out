@@ -45,7 +45,7 @@ public class SetmealController {
      */
     @GetMapping("/page")
     @ApiOperation("分页查询")
-    public Result pageQuery(@RequestBody SetmealPageQueryDTO setmealPageQueryDTO) {
+    public Result pageQuery(SetmealPageQueryDTO setmealPageQueryDTO) {
         PageResult pageResult = setmealService.pageQuery(setmealPageQueryDTO);
         return Result.success(pageResult);
     }
@@ -57,7 +57,7 @@ public class SetmealController {
      */
     @DeleteMapping
     @ApiOperation("批量删除套餐")
-    public Result deleteSetmeal(List<Long> ids) {
+    public Result deleteSetmeal(@RequestParam List<Long> ids) {
         setmealService.deleteSetmeal(ids);
         return Result.success();
     }

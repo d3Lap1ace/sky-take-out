@@ -37,9 +37,9 @@ public interface SetmealDishMapper {
      * 根据套餐id删除关系
      * @param setmealid
      */
-    @Delete("delete from setmeal_dish where setmeal_id = #{setmealid}")
-    void deleteBySetmealid(Long setmealid);
+    @Delete("delete from setmeal_dish where setmeal_id = #{setmealId}")
+    void deleteBySetmealid(Long setmealId);
 
-    @Select("select * from setmeal_dish where setmeal_id = #{id}")
-    List<SetmealDish> getBySetmealId(Long id);
+    @Select("select * from setmeal_dish where setmeal_id = #{setmealId}")
+    List<SetmealDish> getBySetmealId(Long setmealId);
 }
