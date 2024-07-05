@@ -15,4 +15,29 @@ public interface DishService {
      * @return
      */
     List<DishVO> listWithFlavor(Dish dish);
+
+    /**
+     * 新增菜品
+     * @param dishDTO
+     */
+    void saveWithFlavor(DishDTO dishDTO);
+
+    /**
+     * 批量修改菜品
+     * @param ids
+     */
+    void deleteBatch(List<Long> ids);
+
+    /**
+     * 修改菜品
+     * @param dishDTO
+     */
+    void updateWithFlavof(DishDTO dishDTO);
+
+    /**
+     * 状态起售
+     * @param status
+     * @param id
+     */
+    void starOrStop(Integer status, Long id);
 }

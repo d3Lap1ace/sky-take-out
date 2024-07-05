@@ -56,5 +56,5 @@ minio:  # minio
   endpoint: http://192.168.1.2:9000
   access-key: minioadmin
   secret-key: minioadmin
-  bucket-name: lease-pitcher
+  bucket-name: sky
 

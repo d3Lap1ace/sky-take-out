@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DishServiceImpl implements DishService {
@@ -59,5 +60,35 @@ public class DishServiceImpl implements DishService {
         }
 
         return dishVOList;
+    }
+
+    /**
+     * 新增菜品
+     * @param dishDTO
+     */
+    @Override
+    public void saveWithFlavor(DishDTO dishDTO) {
+        Dish dish = new Dish();
+        BeanUtils.copyProperties(dishDTO,dish);
+        dishMapper.insert(dish);
+    }
+
+    @Override
+    public void deleteBatch(List<Long> ids) {
+        for (int i = 0; i < ids.size(); i++) {
+            dishMapper.deleteById(ids.get(i));
+        }
+    }
+
+    @Override
+    public void updateWithFlavof(DishDTO dishDTO) {
+        Dish dish = new Dish();
+        BeanUtils.copyProperties(dishDTO,dish);
+        dishMapper.update(dish);
+    }
+
+    @Override
+    public void starOrStop(Integer status, Long id) {
+        dishMapper.startOrstop(status,id);
     }
 }
