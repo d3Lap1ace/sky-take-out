@@ -1,11 +1,11 @@
 sky:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    host: 192.168.1.2
+    host: 192.168.6.100
     port: 3306
     database: sky_take_out
     username: root
-    password: 123456
+    password: root
   wechat:
     appid: wxb999d56ed39a089f
     secret: a27f6a2a09a873a9b87afd37006bd092

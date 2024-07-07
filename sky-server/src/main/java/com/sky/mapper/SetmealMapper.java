@@ -39,4 +39,7 @@ public interface SetmealMapper {
      * @return
      */
     Integer countByCategoryId(Long id);
+
+    @Select("select * from setmeal where id = #{id}")
+    Setmeal getById(Long setmealId);
 }

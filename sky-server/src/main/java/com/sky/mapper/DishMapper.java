@@ -77,4 +77,7 @@ public interface DishMapper {
 
     @Update("update dish set status = #{status} where id = #{id} ")
     void startOrstop(Integer status, Long id);
+
+    @Select("select * from dish where id = #{id}")
+    Dish getById(Long dishId);
 }
