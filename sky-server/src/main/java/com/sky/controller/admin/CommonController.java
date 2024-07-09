@@ -64,7 +64,7 @@ public class CommonController {
                     .build();
             //通过客户端向Minio服务器上传对象
             minioClient.putObject(putObjectArgs);
-            //返回文件在minio的地址，http://192.168.6.100:9000/lease/文件名
+            //返回文件在minio的地址，http://192.168.1.2:9000/lease/文件名
             return minioProperties.getEndpoint()+"/"+minioProperties.getBucketName()+"/"+newFileName;
         } catch (Exception e) {
             System.out.println("Error occurred:" + e);

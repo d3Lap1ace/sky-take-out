@@ -28,18 +28,20 @@
     </insert>
     <select id="list" parameterType="ShoppingCart" resultType="ShoppingCart">
         select * from shopping_cart
-        <if test="userId != null">
-            and user_id = #{userId}
-        </if>
-        <if test="dishId != null">
-            and dish_id = #{dishId}
-        </if>
-        <if test="setmealId != null">
-            and setmeal_id = #{setmealId}
-        </if>
-        <if test="dishFlavor != null">
-            and dish_flavor = #{dishFlover}
-        </if>
+        <where>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="dishId != null">
+                and dish_id = #{dishId}
+            </if>
+            <if test="setmealId != null">
+                and setmeal_id = #{setmealId}
+            </if>
+            <if test="dishFlavor != null">
+                and dish_flavor = #{dishFlover}
+            </if>
+        </where>
         order by create_time desc
     </select>
 </mapper>
