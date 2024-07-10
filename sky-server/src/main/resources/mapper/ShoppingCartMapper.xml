@@ -39,7 +39,7 @@
                 and setmeal_id = #{setmealId}
             </if>
             <if test="dishFlavor != null">
-                and dish_flavor = #{dishFlover}
+                and dish_flavor = #{dishFlavor}
             </if>
         </where>
         order by create_time desc

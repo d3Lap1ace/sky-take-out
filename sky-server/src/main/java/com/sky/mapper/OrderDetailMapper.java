@@ -1,20 +1,19 @@
 package com.sky.mapper;
 
-import com.sky.entity.Orders;
-import org.apache.ibatis.annotations.Insert;
+import com.sky.entity.OrderDetail;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * @classname sky
  * @Auther d3Lap1ace
- * @Time 9/7/2024 21:10 周二
+ * @Time 10/7/2024 20:08 周三
  * @description
  * @Version 1.0
  * From the Laplace Demon
  */
 @Mapper
-public interface OrderMapper {
-
-
-    void insert(Orders orders);
+public interface OrderDetailMapper {
+    void insetByList(List<OrderDetail> orderDetailList);
 }
