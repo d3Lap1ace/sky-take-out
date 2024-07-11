@@ -5,6 +5,7 @@ import com.sky.entity.OrderDetail;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.OrderService;
+import com.sky.vo.OrderStatisticsVO;
 import com.sky.vo.OrderSubmitVO;
 import com.sky.vo.OrderVO;
 import io.swagger.annotations.ApiOperation;
@@ -45,23 +46,26 @@ public class OrderController {
     }
 
     @ApiOperation("查询订单详情")
-    @GetMapping("orderDetail/{id}")
-    public Result<OrderVO> orderDetailById(@PathVariable Integer id ){
+    @GetMapping("/orderDetail/{id}")
+    public Result<OrderVO> orderDetailById(@PathVariable Long id ){
         OrderVO orderVO = orderServer.getDetailByid(id);
         return Result.success(orderVO);
     }
 
     @ApiOperation("取消订单")
-    @PutMapping("cancel/{id}")
-    public Result cancelById(@PathVariable Integer id){
+    @PutMapping("/cancel/{id}")
+    public Result cancelById(@PathVariable Long id){
         orderServer.cancelById(id);
         return Result.success();
     }
 
     @ApiOperation("再来一单")
-    @PostMapping("repetition/{id}")
+    @PostMapping("/repetition/{id}")
     public Result repetitionById(@PathVariable Long id){
         orderServer.repetitionById(id);
         return Result.success();
     }
+
+
+
 }

@@ -35,7 +35,7 @@ public interface OrderMapper {
      * @return
      */
     @Select("select * from orders where id = #{id}")
-    Orders getById(Integer id);
+    Orders getById(Long id);
 
     /**
      * 跟新订单
@@ -43,4 +43,12 @@ public interface OrderMapper {
      */
     @Update("update orders set status = #{status},cancel_reason = #{cancelReaseon},cancel_time = #{cancelTime} where id = #{id}")
     void update(Orders orders);
+
+    /**
+     * 查询订单状态的数量
+     * @param status
+     * @return
+     */
+    @Select("select count(id) from orders where status = #{status}")
+    Integer selectStatistics(Integer status);
 }
