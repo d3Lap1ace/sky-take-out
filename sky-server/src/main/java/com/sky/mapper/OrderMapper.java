@@ -3,10 +3,11 @@ package com.sky.mapper;
 import com.github.pagehelper.Page;
 import com.sky.dto.OrdersPageQueryDTO;
 import com.sky.entity.Orders;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @classname sky
@@ -41,7 +42,7 @@ public interface OrderMapper {
      * 跟新订单
      * @param orders
      */
-    @Update("update orders set status = #{status},cancel_reason = #{cancelReaseon},cancel_time = #{cancelTime} where id = #{id}")
+    @Update("update orders set status = #{status},checkout_time = #{checkoutTime} where id = #{id}")
     void update(Orders orders);
 
     /**
@@ -58,6 +59,20 @@ public interface OrderMapper {
      * @param userId
      * @return
      */
-    @Select("select * from orders where number = #{orderNumber} and user_id = #{userId}")
+    @Select("select * from orders where number = #{orderNumber} and user_id = #{userId} ")
     Orders getByNumberAndUserId(String orderNumber, Long userId);
+
+
+    /**
+     * 根据状态和下单时间查询订单
+     * @param
+     * @param
+     */
+    @Select("select * from orders where status = #{status} and order_time < #{orderTime}")
+    List<Orders> getByStatusAndOrdertimeLT(Integer deliveryInProgress, LocalDateTime time);
+
+
+    @Update("update orders set status = #{orderStatus},pay_status = #{paidStatus},checkout_time = #{checkoutTime} where id = #{id}")
+    void updateStatus(Integer orderStatus, Integer paidStatus, LocalDateTime checkoutTime , Long id);
+
 }
